@@ -1,9 +1,19 @@
-import Express from 'express'
+const express = require('express')
+const router = express.Router()
+const apiVersions = {
+    'Version 1': 'v1'
+};
 
-const rootRouter = Express.Router()
-
-rootRouter.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.render('home', {pageTitle: 'Home'})
 })
 
-export default rootRouter
+router.get('/api', (req, res) => {
+    res.json(apiVersions)
+})
+
+for (var i in apiVersions) {
+    router.use('/api/' + apiVersions[i], require(`./${apiVersions[i]}/api.js`));
+}
+
+module.exports = router

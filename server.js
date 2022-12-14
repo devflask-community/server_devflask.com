@@ -1,11 +1,11 @@
-import Express from 'express'
-import { rootRouter } from './routers.js'
+const express =  require('express')
+const rootRouter = require('./routers/root.js');
 
-const server = Express()
+const server = express()
 const serverPort = 8080
 
 //Static Files
-server.use('/public', Express.static('./client/public'))
+server.use('/public', express.static('./client/public'))
 
 //Templating Engine
 server.set('views', './client/views')
