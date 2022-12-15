@@ -5,7 +5,19 @@ const apiVersions = {
 };
 
 router.get('/', (req, res) => {
-    res.render('home', {pageTitle: 'Home'})
+    res.render('home', {pageTitle: 'home'})
+})
+
+router.get('/about', (req, res) => {
+    res.render('about', {pageTitle: 'about'})
+})
+
+router.get('/projects', (req, res) => {
+    res.render('projects', {pageTitle: 'projects'})
+})
+
+router.get('/login', (req, res) => {
+    res.render('login', {pageTitle: 'login'})
 })
 
 router.get('/api', (req, res) => {
